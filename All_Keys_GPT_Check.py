@@ -1,5 +1,3 @@
-directory='/home/ntlpt-52/work/IDP/Auto_Label/Trade_Finance/100_samples_data'
-
 import json
 from OCR_GPT import *
 import jellyfish
@@ -63,16 +61,16 @@ def MatchGPTKeyswithLabels(response_dictionary,labels_values,file_name):
 
     print(keys_labels_matching_score)
     df = pd.DataFrame(data=keys_labels_matching_score)
-    csv_file_directory="/home/ntlpt-52/work/IDP/Auto_Label/Trade_Finance/100_Samples_Key_Labels_Distance_Score/"+file_name+".csv"
-    if not os.path.isdir("/home/ntlpt-52/work/IDP/Auto_Label/Trade_Finance/100_Samples_Key_Labels_Distance_Score"):
-        os.mkdir("/home/ntlpt-52/work/IDP/Auto_Label/Trade_Finance/100_Samples_Key_Labels_Distance_Score")
+    csv_file_directory="/home/work/IDP/Auto_Label/Trade_Finance/100_Samples_Key_Labels_Distance_Score/"+file_name+".csv"
+    if not os.path.isdir("/home/work/IDP/Auto_Label/Trade_Finance/100_Samples_Key_Labels_Distance_Score"):
+        os.mkdir("/home/work/IDP/Auto_Label/Trade_Finance/100_Samples_Key_Labels_Distance_Score")
     df.to_csv(csv_file_directory)  
     return correct_values_count,keys_not_in_label_file,df
 
 if __name__ == "__main__":
-    directory= "/home/ntlpt-52/work/IDP/Auto_Label/Trade_Finance/100_samples_data/"
+    directory= "/home/work/IDP/Auto_Label/Trade_Finance/100_samples_data/"
     #-----------------------------------checking all the labels available----------------------------------------------------------------------------
-    all_labels_file="/home/ntlpt-52/work/IDP/Auto_Label/Trade_Finance/Trade_Finance_Actual_Data/classes.txt"
+    all_labels_file="/home/work/IDP/Auto_Label/Trade_Finance/Trade_Finance_Actual_Data/classes.txt"
     with open(all_labels_file,'r') as f:
         lines=f.read()
     f.close()
@@ -93,7 +91,7 @@ if __name__ == "__main__":
 
     #-----------------------------------------------------------logs_directory----SetLoggingSettings--------------------------------------------------------------------------
     todays_date = moment.unix(time.time(), utc=True).locale('Asia/Kolkata').format("YYYY-MM-DD_HH-mm-ss")
-    logs_directory= "/home/ntlpt-52/work/IDP/Auto_Label/Trade_Finance/Experiment_logs/100_samples_data_logs/"
+    logs_directory= "/home/work/IDP/Auto_Label/Trade_Finance/Experiment_logs/100_samples_data_logs/"
     if os.path.isdir(logs_directory):
         lst = os.listdir(logs_directory)
         number_files = len(lst)
