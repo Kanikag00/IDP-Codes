@@ -7,7 +7,7 @@ def OCR_Text_Extraction(image_path):
     return text_portion
 
 def GPT_Key_Value_Pair_Extraction(labels_to_extract,text_portion):
-    openai.api_key = "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"
+    openai.api_key = ""
     first: str = "Extract "+labels_to_extract
     data: str = text_portion
     end: str = "All Extracted Details are :" 
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     print(text_portion)
     # exit("++++++++++++++")
     # kanika account
-    openai.api_key = "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"
+    openai.api_key = ""
     # first: str = "Extract Exporter Name, buyer name, consignee name, net weight in kgs, bin, total, IEC,
     # country of " \ "origin, state of origin, box size, quantity, description of goods, Fir #, part no:" data: str =
     # text_portion end: str = "exporter name, buyer name, consignee name, net weight in kgs, bin, total, IEC:,
